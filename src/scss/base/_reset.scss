@@ -1,0 +1,29 @@
+/* лютая база */
+*{box-sizing:border-box}
+body{
+    flex-direction: column;
+    gap:0;
+    margin:0;
+    font-family:var(--font-main);
+    background:var(--bg-black);
+    color:var(--muted-white);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    font-size:24px;
+}
+img {
+/* Запрет перетаскивания изображения */
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  -webkit-touch-callout: none;
+  
+/* Запрет выделения изображения */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+  pointer-events: none;
+}
