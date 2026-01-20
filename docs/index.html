@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <title>Home</title>
+</head>
+<body>
+    <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="index.html"><img src="../assets/images/infotok.webp" alt="Логотип ИНФОТОК" class="brand__logo"></a>
+        <span class="brand__title">ИНФОТОК</span>
+      </div>
+
+      <button class="burger-menu" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="header-nav" aria-label="Главное меню">
+        <ul class="header-nav__list">
+          <li><a href="replenishment.html" class="header-nav__item">Пополнение steam</a></li>
+          <li><a href="#" class="header-nav__item">Игровая валюта</a></li>
+          <li><a href="#" class="header-nav__item">Покупай ключи</a></li>
+          <li><a href="#" class="header-nav__item">Оформляй подписки</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-buttons">
+        <a href="connection.html"><img src="../assets/images/user.webp" alt="личный кабинет" class="header__user"></a>
+        <button class="theme-toggle" aria-label="Переключить тему">
+          <div class="theme-toggle__circle"></div>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.querySelector('.theme-toggle');
+  const html = document.documentElement;
+  
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    html.setAttribute('data-theme', savedTheme);
+    updateImages(savedTheme);
+  }
+  
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function() {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateImages(newTheme);
+    });
+  }
+  
+  function updateImages(theme) {
+    const images = document.querySelectorAll('img[data-dark][data-light]');
+    images.forEach(img => {
+      img.src = theme === 'light' ? img.getAttribute('data-light') : img.getAttribute('data-dark');
+    });
+  }
+});
+</script>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const burgerMenu = document.querySelector('.burger-menu');
+  const headerNav = document.querySelector('.header-nav');
+  
+  if (burgerMenu && headerNav) {
+    burgerMenu.addEventListener('click', function() {
+      headerNav.classList.toggle('active');
+      burgerMenu.classList.toggle('active');
+    });
+    
+    const navItems = headerNav.querySelectorAll('.header-nav__item');
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        headerNav.classList.remove('active');
+        burgerMenu.classList.remove('active');
+      });
+    });
+    
+    document.addEventListener('click', function(event) {
+      if (!event.target.closest('.header-nav') && !event.target.closest('.burger-menu')) {
+        headerNav.classList.remove('active');
+        burgerMenu.classList.remove('active');
+      }
+    });
+  }
+});
+</script>
+
+<script>
+document.querySelector('.brand').addEventListener('click', function() {
+  window.location.href = 'index.html';
+});
+</script>
+    <main class="site-main">
+
+    <div class="hero-background">
+      <img src="../assets/images/gamepad-black.webp" data-dark="../assets/images/gamepad-black.webp" data-light="../assets/images/gamepad-light.webp" alt="Игровой фон" class="hero-background__image">
+    </div>
+
+    <h1 class="hero__prom">Самые выгодные пополнения через ИНФОТОК</h1>
+
+    <div class="main-container">
+      
+      <section class="main-hero__container" aria-labelledby="hero-title">
+        <div class="main-section-frame">
+          <h2 class="hero__subtitle">Пополнение Steam с минимальной комиссией</h2>
+          <form class="steam-topup" action="#" method="post" aria-label="Форма пополнения Steam">
+
+            <label class="field field--with-icon">
+              <input class="field__input" type="text" maxlength="32" name="steam_login" placeholder="Логин Steam">
+              <div class="field__icon">
+                <a href="/index.html">
+                  <img class="question__mini-icon" src="../assets/images/question.webp" data-dark="../assets/images/question.webp" data-light="../assets/images/question-light.webp" alt="Подсказка">
+                </a>
+              </div>
+            </label>
+
+            <label class="field field--with-currency">
+              <input class="field__input" type="text" pattern="[0-9]*" minlength="3" inputmode="numeric" name="amount" placeholder="Сумма пополнения">
+              <a href="/index.html">
+                <div class="field__currency">RUB</div>
+              </a>
+            </label>
+
+            <button href="/index.html" class="btn--primary" type="submit">Пополнить</button>
+          </form>
+        </div>
+      </section>
+
+      
+      <section class="main-currency__container" aria-labelledby="currency-title">
+        <div class="main-section-frame">
+          <div class="frame-head">
+            <h2 id="currency-title">Игровая валюта</h2>
+            <div class="nav-buttons">
+              <button class="nav-button left__button">
+                <img src="../assets/images/vector-left.webp" alt="Кнопка 'влево'">
+              </button>
+              <button class="nav-button right__button">
+                <img src="../assets/images/vector-right.webp" alt="Кнопка 'вправо'">
+              </button>
+            </div>
+          </div>
+          <div class="currency__grid">
+            <article class="game-card">
+              <a><div class="game-card__image"><img src="../assets/images/GameCard (0).webp"></div></a>
+              <h3 class="game-card__title">Fortnite</h3>
+            </article>
+
+            <article class="game-card">
+              <div class="game-card__image"><img src="../assets/images/GameCard (1).webp"></div>
+              <h3 class="game-card__title">Dead by Daylight</h3>
+            </article>
+
+            <article class="game-card">
+              <div class="game-card__image"><img src="../assets/images/GameCard (2).webp"></div>
+              <h3 class="game-card__title">Path of Exile 2</h3>
+            </article>
+
+            <article class="game-card">
+              <div class="game-card__image"><img src="../assets/images/GameCard (3).webp"></div>
+              <h3 class="game-card__title">Marvel Rivals</h3>
+            </article>
+
+            <article class="game-card">
+              <div class="game-card__image"><img src="../assets/images/GameCard (4).webp"></div>
+              <h3 class="game-card__title">Path of Exile</h3>
+            </article>
+
+            <article class="game-card">
+              <div class="game-card__image"><img src="../assets/images/GameCard (5).webp"></div>
+              <h3 class="game-card__title">PUBG Battlegrounds</h3>
+            </article>
+
+            <article class="game-card">
+              <div class="game-card__image"><img src="../assets/images/GameCard (0).webp"></div>
+              <h3 class="game-card__title">Fortnite</h3>
+            </article>
+
+            <article class="game-card">
+              <div class="game-card__image"><img src="../assets/images/GameCard (1).webp"></div>
+              <h3 class="game-card__title">Dead by Daylight</h3>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      
+      <section class="main-games__container" aria-labelledby="games-title">
+        <div class="main-section-frame">
+          <div class="frame-head">
+            <h2 id="currency-title">Покупка игр</h2>
+            <div class="nav-buttons">
+              <button class="nav-button left__button">
+                <img src="../assets/images/vector-left.webp" alt="Кнопка 'влево'">
+              </button>
+              <button class="nav-button right__button">
+                <img src="../assets/images/vector-right.webp" alt="Кнопка 'вправо'">
+              </button>
+            </div>
+          </div>
+          <div class="games__grid">
+            <article class="game-entry">
+              <div class="game-entry__image"><img src="../assets/images/GameCard (6).webp"></div>
+              <h3 class="game-entry__title">Dead by Daylight</h3>
+            </article>
+
+            <article class="game-entry">
+              <div class="game-entry__image"><img src="../assets/images/GameCard (7).webp"></div>
+              <h3 class="game-entry__title">Ведьмак 3: Дикая Охота</h3>
+            </article>
+
+            <article class="game-entry">
+              <div class="game-entry__image"><img src="../assets/images/GameCard (8).webp"></div>
+              <h3 class="game-entry__title">Red Dead Redemption 2</h3>
+            </article>
+
+            <article class="game-entry">
+              <div class="game-entry__image"><img src="../assets/images/GameCard (9).webp"></div>
+              <h3 class="game-entry__title">Kingdom Come: Deliverance</h3>
+            </article>
+
+            <article class="game-entry">
+              <div class="game-entry__image"><img src="../assets/images/GameCard (10).webp"></div>
+              <h3 class="game-entry__title">DARK SOULS™: REMASTERED</h3>
+            </article>
+
+            <article class="game-entry">
+              <div class="game-entry__image"><img src="../assets/images/GameCard (6).webp"></div>
+              <h3 class="game-entry__title">Dead by Daylight</h3>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      
+      <section class="main-subscriptions__container">
+        <div class="main-section-frame">
+          <div class="frame-head">
+            <h2 id="currency-title">Подписки</h2>
+            <div class="nav-buttons">
+              <button class="nav-button left__button">
+                <img src="../assets/images/vector-left.webp" alt="Кнопка 'влево'">
+              </button>
+              <button class="nav-button right__button">
+                <img src="../assets/images/vector-right.webp" alt="Кнопка 'вправо'">
+              </button>
+            </div>
+          </div>
+          <div class="subscriptions__grid">
+            <div class="subscription">
+              <div class="subscription__icon"><img src="../assets/images/GameCard (11).webp"></div>
+              <h3 class="subscription__title">ChatGPT</h3>
+            </div>
+
+            <div class="subscription">
+              <div class="subscription__icon"><img src="../assets/images/GameCard (12).webp"></div>
+              <h3 class="subscription__title">Discord</h3>
+            </div>
+
+            <div class="subscription">
+              <div class="subscription__icon"><img src="../assets/images/GameCard (13).webp"></div>
+              <h3 class="subscription__title">Xbox</h3>
+            </div>
+
+            <div class="subscription">
+              <div class="subscription__icon"><img src="../assets/images/GameCard (14).webp"></div>
+              <h3 class="subscription__title">PS Games</h3>
+            </div>
+
+            <div class="subscription">
+              <div class="subscription__icon"><img src="../assets/images/GameCard (15).webp"></div>
+              <h3 class="subscription__title">Epic Games</h3>
+            </div>
+
+            <div class="subscription">
+              <div class="subscription__icon"><img src="../assets/images/GameCard (16).webp"></div>
+              <h3 class="subscription__title">YouTube</h3>
+            </div>
+
+            <div class="subscription">
+              <div class="subscription__icon"><img src="../assets/images/GameCard (11).webp"></div>
+              <h3 class="subscription__title">ChatGPT</h3>
+            </div>
+
+            <div class="subscription">
+              <div class="subscription__icon"><img src="../assets/images/GameCard (12).webp"></div>
+              <h3 class="subscription__title">Discord</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <h2 class="reviews__prom">Отзывы клиентов ИНФОТОК</h2>
+
+    
+    <section class="main-reviews__container">
+    
+      <div class="reviews__list">
+        <article class="review">
+          <div class="review__rating">★★★★★</div>
+          <p class="review__text">
+            Быстро и без проблем!<br> Покупал ключ для Steam. Оплатил с телефона, ключ пришел в личный кабинет и на почту буквально 
+            через минуту. Активировался без нареканий. Рекомендую!
+          </p>
+          <div class="review__author">Иван, Москва</div>
+        </article>
+
+        <article class="review">
+          <div class="review__rating">★★★★☆</div>
+          <p class="review__text">
+            Хороший сервис, но была маленькая задержка.<br>Покупал подписку на месяц для Xbox Game Pass. Цена приятно удивила, 
+            дешевле, чем везде. После оплаты ключ пришел не сразу, а минут через 15. Немного поволновался, но техподдержка 
+            быстро ответила, сказали, что это автоматическая проверка платежа. В итоге все получил и активировал. Минус звезда 
+            за легкий стресс, но в целом все ок.
+          </p>
+          <div class="review__author">Дмитрий, Санкт-Петербург</div>
+        </article>
+
+        <article class="review">
+          <div class="review__rating">★★★★★</div>
+          <p class="review__text">
+            Наконец-то нашел адекватный магазин!<br>Ребята, это просто спасение! До этого пытался купить пополнение баланса 
+            Steam в другом месте — в итоге потерял время и нервы. Здесь же все четко: выбрал сумму, оплатил картой, через 2
+            минуты на счете стима были деньги. Никаких скрытых комиссий, все прозрачно. Теперь только сюда.
+          </p>
+          <div class="review__author">Артем, Екатеринбург</div>
+        </article>
+
+        <article class="review">
+          <div class="review__rating">★★★★☆</div>
+          <p class="review__text">
+            Все устроило.<br>Понадобилась срочно подписка на Spotify Premium. Нашел тут, купил. Пришло быстро, активировал.
+            Работает уже второй месяц, все хорошо. Цена средняя по рынку. В принципе, никаких нареканий нет, но и восторга 
+            особого нет — сервис просто делает то, что должен. А это уже хорошо.          
+          </p>
+          <div class="review__author">Аноним</div>
+        </article>
+      </div>
+    </section>
+  </main>
+    <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="contacts">
+        <div class="footer__line"></div>
+        <div class="footer__contacts">
+          <div class="contact">
+            <h4 class="contacts__title">Контакты:</h4>
+            <ul>
+              <li class="contacts__phone"><strong>телефон:</strong> +7 (800) 555-35-35</li>
+              <li class="contacts__email"><strong>почта:</strong> <a class="footer-email" href="mailto:KupiHub@gmail.com">KupiHub@gmail.com</a></li>
+            </ul>
+          </div>
+          
+          <div class="addresses">
+            <h4>Адреса офисов:</h4>
+            <ul>
+              <li>улица Гвардейцев, 18, Нижний Новгород, 603157</li>
+              <li>Московское шоссе, 1, Нижний Новгород, 603116</li>
+              <li>Кремль, 1А, Нижний Новгород</li>
+            </ul>
+            <p>график работы: Ежедневно с 10:00 до 19:00</p>
+          </div>
+
+          <div class="socials">
+            <h4>Мы в соцсетях:</h4>
+            <ul>
+              <li>Instagram</li>
+              <li>VKontakte</li>
+              <li>Telegram</li>
+              <li>YouTube</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__line"></div>
+      </div>
+
+      <div class="legal">
+        <a href="#" class="legal__link">Договор-оферта</a>
+        <a href="#" class="legal__link">Политика конфиденциальности</a>
+      </div>
+
+    </div>
+</footer>
+</body>
+</html>

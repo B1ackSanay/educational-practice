@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <title>Home</title>
+</head>
+<body>
+    <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="index.html"><img src="../assets/images/infotok.webp" alt="Логотип ИНФОТОК" class="brand__logo"></a>
+        <span class="brand__title">ИНФОТОК</span>
+      </div>
+
+      <button class="burger-menu" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="header-nav" aria-label="Главное меню">
+        <ul class="header-nav__list">
+          <li><a href="replenishment.html" class="header-nav__item">Пополнение steam</a></li>
+          <li><a href="#" class="header-nav__item">Игровая валюта</a></li>
+          <li><a href="#" class="header-nav__item">Покупай ключи</a></li>
+          <li><a href="#" class="header-nav__item">Оформляй подписки</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-buttons">
+        <a href="connection.html"><img src="../assets/images/user.webp" alt="личный кабинет" class="header__user"></a>
+        <button class="theme-toggle" aria-label="Переключить тему">
+          <div class="theme-toggle__circle"></div>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.querySelector('.theme-toggle');
+  const html = document.documentElement;
+  
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    html.setAttribute('data-theme', savedTheme);
+    updateImages(savedTheme);
+  }
+  
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function() {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateImages(newTheme);
+    });
+  }
+  
+  function updateImages(theme) {
+    const images = document.querySelectorAll('img[data-dark][data-light]');
+    images.forEach(img => {
+      img.src = theme === 'light' ? img.getAttribute('data-light') : img.getAttribute('data-dark');
+    });
+  }
+});
+</script>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const burgerMenu = document.querySelector('.burger-menu');
+  const headerNav = document.querySelector('.header-nav');
+  
+  if (burgerMenu && headerNav) {
+    burgerMenu.addEventListener('click', function() {
+      headerNav.classList.toggle('active');
+      burgerMenu.classList.toggle('active');
+    });
+    
+    const navItems = headerNav.querySelectorAll('.header-nav__item');
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        headerNav.classList.remove('active');
+        burgerMenu.classList.remove('active');
+      });
+    });
+    
+    document.addEventListener('click', function(event) {
+      if (!event.target.closest('.header-nav') && !event.target.closest('.burger-menu')) {
+        headerNav.classList.remove('active');
+        burgerMenu.classList.remove('active');
+      }
+    });
+  }
+});
+</script>
+
+<script>
+document.querySelector('.brand').addEventListener('click', function() {
+  window.location.href = 'index.html';
+});
+</script>
+    <main class="site-main replenishment-main">
+    <div class="replenishment-container">
+        <img src="../assets/images/steam-black.webp" class="replenishment-bg dark-theme-bg">
+        <img src="../assets/images/steam-light.webp" class="replenishment-bg light-theme-bg">
+        <div class="main-section-frame">
+            <h1 class="replenishment-title">Пополнение стима с минимальной комиссией</h1>
+            
+            <form class="replenishment-form" action="#" method="post">
+                <div class="form-section">
+                    <label class="form-label">Введите ваш логин Steam</label>
+                    <label class="field">
+                        <input class="field__input" type="text" name="steam_login" placeholder="Ваш логин Steam" required>
+                    </label>
+                </div>
+                
+                <div class="form-section">
+                    <label class="form-label">Введите сумму пополнения</label>
+                    <label class="field">
+                        <input class="field__input" type="number" name="amount" placeholder="Сумма в рублях" required oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                    </label>
+                </div>
+                
+                <div class="form-section">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="agree_terms" required>
+                        <span class="checkbox-custom"></span>
+                        Я принимаю условия списания комиссии
+                    </label>
+                </div>
+                
+                <button class="btn--primary replenishment-submit" type="submit">Оплатить</button>
+            </form>
+        </div>
+    </div>
+</main>
+    <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="contacts">
+        <div class="footer__line"></div>
+        <div class="footer__contacts">
+          <div class="contact">
+            <h4 class="contacts__title">Контакты:</h4>
+            <ul>
+              <li class="contacts__phone"><strong>телефон:</strong> +7 (800) 555-35-35</li>
+              <li class="contacts__email"><strong>почта:</strong> <a class="footer-email" href="mailto:KupiHub@gmail.com">KupiHub@gmail.com</a></li>
+            </ul>
+          </div>
+          
+          <div class="addresses">
+            <h4>Адреса офисов:</h4>
+            <ul>
+              <li>улица Гвардейцев, 18, Нижний Новгород, 603157</li>
+              <li>Московское шоссе, 1, Нижний Новгород, 603116</li>
+              <li>Кремль, 1А, Нижний Новгород</li>
+            </ul>
+            <p>график работы: Ежедневно с 10:00 до 19:00</p>
+          </div>
+
+          <div class="socials">
+            <h4>Мы в соцсетях:</h4>
+            <ul>
+              <li>Instagram</li>
+              <li>VKontakte</li>
+              <li>Telegram</li>
+              <li>YouTube</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__line"></div>
+      </div>
+
+      <div class="legal">
+        <a href="#" class="legal__link">Договор-оферта</a>
+        <a href="#" class="legal__link">Политика конфиденциальности</a>
+      </div>
+
+    </div>
+</footer>
+</body>
+</html>

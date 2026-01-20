@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <title>Home</title>
+</head>
+<body>
+    <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="index.html"><img src="../assets/images/infotok.webp" alt="Логотип ИНФОТОК" class="brand__logo"></a>
+        <span class="brand__title">ИНФОТОК</span>
+      </div>
+
+      <button class="burger-menu" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="header-nav" aria-label="Главное меню">
+        <ul class="header-nav__list">
+          <li><a href="replenishment.html" class="header-nav__item">Пополнение steam</a></li>
+          <li><a href="#" class="header-nav__item">Игровая валюта</a></li>
+          <li><a href="#" class="header-nav__item">Покупай ключи</a></li>
+          <li><a href="#" class="header-nav__item">Оформляй подписки</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-buttons">
+        <a href="connection.html"><img src="../assets/images/user.webp" alt="личный кабинет" class="header__user"></a>
+        <button class="theme-toggle" aria-label="Переключить тему">
+          <div class="theme-toggle__circle"></div>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.querySelector('.theme-toggle');
+  const html = document.documentElement;
+  
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    html.setAttribute('data-theme', savedTheme);
+    updateImages(savedTheme);
+  }
+  
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function() {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateImages(newTheme);
+    });
+  }
+  
+  function updateImages(theme) {
+    const images = document.querySelectorAll('img[data-dark][data-light]');
+    images.forEach(img => {
+      img.src = theme === 'light' ? img.getAttribute('data-light') : img.getAttribute('data-dark');
+    });
+  }
+});
+</script>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const burgerMenu = document.querySelector('.burger-menu');
+  const headerNav = document.querySelector('.header-nav');
+  
+  if (burgerMenu && headerNav) {
+    burgerMenu.addEventListener('click', function() {
+      headerNav.classList.toggle('active');
+      burgerMenu.classList.toggle('active');
+    });
+    
+    const navItems = headerNav.querySelectorAll('.header-nav__item');
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        headerNav.classList.remove('active');
+        burgerMenu.classList.remove('active');
+      });
+    });
+    
+    document.addEventListener('click', function(event) {
+      if (!event.target.closest('.header-nav') && !event.target.closest('.burger-menu')) {
+        headerNav.classList.remove('active');
+        burgerMenu.classList.remove('active');
+      }
+    });
+  }
+});
+</script>
+
+<script>
+document.querySelector('.brand').addEventListener('click', function() {
+  window.location.href = 'index.html';
+});
+</script>
+    <main class="site-main connection-main">
+
+  
+  <section class="contact-info-section">
+    <div class="main-section-frame">
+      <h2 class="contact-info__title">Наши контакты</h2>
+      
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-item__icon">📞</div>
+          <div class="contact-item__content">
+            <h3 class="contact-item__title">Телефоны</h3>
+            <div class="social-links">
+                <h1 class="contact-item__text">+7 (800) 555-35-35</h1>
+                <h1 class="contact-item__text">+7 (495) 123-45-67</h1>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-item__icon">✉️</div>
+          <div class="contact-item__content">
+            <h3 class="contact-item__title">Email</h3>
+            <div class="social-links">
+                <h1 class="contact-item__text">KupiHub@gmail.com</h1>
+                <h1 class="contact-item__text">support@infotok.ru</h1>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-item__icon">💬</div>
+          <div class="contact-item__content">
+            <h3 class="contact-item__title">Соцсети</h3>
+            <div class="social-links">
+              <a href="#" class="social-link">Instagram</a>
+              <a href="#" class="social-link">VKontakte</a>
+              <a href="#" class="social-link">Telegram</a>
+              <a href="#" class="social-link">YouTube</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-item__icon">🕒</div>
+          <div class="contact-item__content">
+            <h3 class="contact-item__title">Время работы</h3>
+            <div class="social-links">
+                <h1 class="contact-item__text">Ежедневно с 10:00 до 19:00</h1>
+                <h1 class="contact-item__text">Техподдержка: круглосуточно</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="connection-hero">
+      <h1 class="connection-hero__title">Мы готовы помочь вам</h1>
+  </div>
+
+  
+  <section class="map-section">
+    <div class="main-section-frame">
+      <h2 class="map-section__title">Мы находимся здесь</h2>
+      
+      
+      <div class="map-controls">
+        <button class="map-control-btn active" data-address="0">ул. Гвардейцев, 18</button>
+        <button class="map-control-btn" data-address="1">Московское шоссе, 1</button>
+        <button class="map-control-btn" data-address="2">Кремль, 1А</button>
+      </div>
+      
+      
+      <div class="map-container">
+        <div id="map" style="width: 100%; height: 400px; border-radius: 15px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="connection-hero">
+    <h1 class="connection-hero__title">Свяжитесь с нами</h1>
+    <p class="connection-hero__subtitle">Мы всегда рады помочь вам с любыми вопросами</p>
+  </div>
+
+  <div class="connection-container">
+
+    
+    <section class="connection-form-section">
+      <div class="main-section-frame">
+        <h2 class="connection-form__title">Форма обратной связи</h2>
+        <form class="connection-form" action="#" method="post">
+          <div class="form-row">
+            <label class="field">
+              <input class="field__input" type="text" name="name" placeholder="Ваше имя" required>
+            </label>
+            <label class="field">
+              <input class="field__input" type="email" name="email" placeholder="Ваш email" required>
+            </label>
+          </div>
+          
+          <label class="field">
+            <input class="field__input" type="text" name="subject" placeholder="Тема сообщения" required>
+          </label>
+          
+          <label class="field field--textarea">
+            <textarea class="field__input field__textarea" name="message" placeholder="Ваше сообщение" rows="5" required></textarea>
+          </label>
+          
+          <button class="btn--primary connection-form__submit" type="submit">Отправить сообщение</button>
+        </form>
+      </div>
+    </section>
+
+    
+    <div class="connection-info-grid">
+
+    </div>
+  </div>
+</main>
+
+
+<script src="https://api-maps.yandex.ru/2.1/?apikey=8c6ed6b5-d458-4d83-92f7-8465c36517b7&lang=ru_RU" type="text/javascript"></script>
+
+<script>
+// Инициализация Яндекс.Карты после загрузки API
+ymaps.ready(init);
+
+function init() {
+  // Массив с данными адресов (координаты и названия)
+  const addresses = [
+    {
+      name: 'ул. Гвардейцев, 18, Нижний Новгород',
+      coords: [56.2354, 43.8543] // Координаты первого адреса
+    },
+    {
+      name: 'Московское шоссе, 1, Нижний Новгород',
+      coords: [56.3140, 43.9923] // Координаты второго адреса
+    },
+    {
+      name: 'Кремль, 1А, Нижний Новгород',
+      coords: [56.3281, 44.0020] // Координаты третьего адреса
+    }
+  ];
+
+  // Создаем карту с начальными настройками
+  const map = new ymaps.Map('map', {
+    center: addresses[0].coords, // Начальный центр карты - первый адрес
+    zoom: 15, // Начальный масштаб
+    controls: ['zoomControl', 'fullscreenControl'] // Элементы управления
+  });
+
+  // Создаем метки для всех адресов
+  const placemarks = addresses.map((address, index) => {
+    return new ymaps.Placemark(
+      address.coords, // Координаты метки
+      {
+        balloonContent: address.name // Текст во всплывающем окне
+      }, 
+      {
+        preset: 'islands#blueDotIcon' // Стиль метки
+      }
+    );
+  });
+
+  // Добавляем первую метку на карту (начальное состояние)
+  map.geoObjects.add(placemarks[0]);
+
+  // Находим все кнопки переключения адресов
+  const buttons = document.querySelectorAll('.map-control-btn');
+  
+  // Добавляем обработчики событий для каждой кнопки
+  buttons.forEach((button, index) => {
+    button.addEventListener('click', function() {
+      // Убираем активный класс со всех кнопок
+      buttons.forEach(btn => btn.classList.remove('active'));
+      
+      // Добавляем активный класс текущей кнопке
+      this.classList.add('active');
+      
+      // Убираем все метки с карты
+      map.geoObjects.removeAll();
+      
+      // Добавляем выбранную метку
+      map.geoObjects.add(placemarks[index]);
+      
+      // Перемещаем карту к выбранному адресу с анимацией
+      map.setCenter(addresses[index].coords, 15);
+    });
+  });
+}
+</script>
+    <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="contacts">
+        <div class="footer__line"></div>
+        <div class="footer__contacts">
+          <div class="contact">
+            <h4 class="contacts__title">Контакты:</h4>
+            <ul>
+              <li class="contacts__phone"><strong>телефон:</strong> +7 (800) 555-35-35</li>
+              <li class="contacts__email"><strong>почта:</strong> <a class="footer-email" href="mailto:KupiHub@gmail.com">KupiHub@gmail.com</a></li>
+            </ul>
+          </div>
+          
+          <div class="addresses">
+            <h4>Адреса офисов:</h4>
+            <ul>
+              <li>улица Гвардейцев, 18, Нижний Новгород, 603157</li>
+              <li>Московское шоссе, 1, Нижний Новгород, 603116</li>
+              <li>Кремль, 1А, Нижний Новгород</li>
+            </ul>
+            <p>график работы: Ежедневно с 10:00 до 19:00</p>
+          </div>
+
+          <div class="socials">
+            <h4>Мы в соцсетях:</h4>
+            <ul>
+              <li>Instagram</li>
+              <li>VKontakte</li>
+              <li>Telegram</li>
+              <li>YouTube</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__line"></div>
+      </div>
+
+      <div class="legal">
+        <a href="#" class="legal__link">Договор-оферта</a>
+        <a href="#" class="legal__link">Политика конфиденциальности</a>
+      </div>
+
+    </div>
+</footer>
+</body>
+</html>
