@@ -1,0 +1,112 @@
+<main class="site-main">
+    <div class="game-container">
+        <!-- Блок с изображениями -->
+        <div class="game-gallery">
+            <div class="main-image-container">
+                <div class="main-image"></div>
+            </div>
+
+            <div class="thumbnails">
+                <div class="thumbnail active"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+            </div>
+        </div>
+
+        <!-- Блок с ценой и покупкой -->
+        <div class="purchase-block">
+            <h1 class="game-title">Название игры (Шаблон)</h1>
+
+            <div class="price-section">
+                <span class="current-price">1 499 ₽</span>
+                <span class="old-price">1 999 ₽</span>
+                <span class="discount">-25%</span>
+            </div>
+
+            <button class="btn--primary buy-button">Купить сейчас</button>
+            <button class="wishlist-button">Добавить в избранное</button>
+        </div>
+
+        <!-- Блок с описанием -->
+        <div class="description-block">
+            <h2 class="description-title">Описание игры</h2>
+            <div class="description-content">
+                <div class="features-benefits">
+                    <p>✅ Моментальная доставка ключа</p>
+                    <p>✅ Официальная лицензия</p>
+                    <p>✅ Поддержка 24/7</p>
+                </div>
+                <p>Это шаблон страницы игры. Здесь будет размещено полное описание продукта, включая сюжет, геймплейные особенности и ключевые моменты.</p>
+
+                <p>Игра предлагает захватывающий опыт в жанре GRPG с открытым миром, где каждый выбор имеет значение.</p>
+
+                <h3 class="features-title">Ключевые особенности:</h3>
+                <ul class="features-list">
+                    <li>Обширный открытый мир с динамической погодой</li>
+                    <li>Глубокая система прокачки и кастомизации</li>
+                    <li>Мультиплеерные режимы на до 100 игроков</li>
+                    <li>Регулярные обновления и события</li>
+                    <li>Потрясающая графика и звуковое оформление</li>
+                </ul>
+
+                <p>Это очень крутой шаблон, ведт и игра очень классная! Надюесь, что лью достаточно воды...</p>
+            </div>
+        </div>
+
+        <!-- Блок с отзывами -->
+        <div class="reviews-block">
+            <h2 class="reviews-title">Отзывы покупателей</h2>
+
+            <div class="review-item">
+                <div class="review-header">
+                    <span>15 декабря 2025</span>
+                    <span class="review-rating">★★★★★</span>
+                </div>
+                <p class="review-text">Отличная игра! Геймплей затягивает на часы, графика на высоте. Покупка прошла моментально, ключ пришел сразу после оплаты.</p>
+                <div class="review-author">Алексей, Москва</div>
+            </div>
+
+            <div class="review-item">
+                <div class="review-header">
+                    <span>10 декабря 2025</span>
+                    <span class="review-rating">★★★★☆</span>
+                </div>
+                <p class="review-text">Хорошая игра, соответствует описанию. Были небольшие проблемы с активацией, но техподдержка помогла быстро решить вопрос.</p>
+                <div class="review-author">Мария, Санкт-Петербург</div>
+            </div>
+
+            <div class="review-item">
+                <div class="review-header">
+                    <span>5 декабря 2025</span>
+                    <span class="review-rating">★★★★★</span>
+                </div>
+                <p class="review-text">Покупал со скидкой, получилось очень выгодно. Игра стоит своих денег, особенно по такой цене. Рекомендую!</p>
+                <div class="review-author">Дмитрий, Екатеринбург</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const buyButton = document.querySelector('.buy-button');
+            const wishlistButton = document.querySelector('.wishlist-button');
+
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function () {
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            buyButton.addEventListener('click', function () {
+                alert('Товар добавлен в корзину! (шаблон)');
+            });
+
+            wishlistButton.addEventListener('click', function () {
+                this.textContent = this.textContent === 'Добавить в избранное' ? 'В избранном ✓' : 'Добавить в избранное';
+            });
+        });
+    </script>
+</main>

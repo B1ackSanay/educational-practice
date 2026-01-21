@@ -1,0 +1,35 @@
+<main class="site-main replenishment-main">
+    <div class="replenishment-container">
+        <img src="assets/images/steam-black.webp" class="replenishment-bg dark-theme-bg">
+        <img src="assets/images/steam-light.webp" class="replenishment-bg light-theme-bg">
+        <div class="main-section-frame">
+            <h1 class="replenishment-title">Пополнение стима с минимальной комиссией</h1>
+            
+            <form class="replenishment-form" action="#" method="post">
+                <div class="form-section">
+                    <label class="form-label">Введите ваш логин Steam</label>
+                    <label class="field">
+                        <input class="field__input" type="text" name="steam_login" placeholder="Ваш логин Steam" required>
+                    </label>
+                </div>
+                
+                <div class="form-section">
+                    <label class="form-label">Введите сумму пополнения</label>
+                    <label class="field">
+                        <input class="field__input" type="number" name="amount" placeholder="Сумма в рублях" required oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                    </label>
+                </div>
+                
+                <div class="form-section">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="agree_terms" required>
+                        <span class="checkbox-custom"></span>
+                        Я принимаю условия списания комиссии
+                    </label>
+                </div>
+                
+                <button class="btn--primary replenishment-submit" type="submit">Оплатить</button>
+            </form>
+        </div>
+    </div>
+</main>

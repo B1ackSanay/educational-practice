@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <title>Home</title>
+</head>
+<body>
+    <header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <a href="index.html"><img src="assets/images/infotok.webp" alt="Логотип ИНФОТОК" class="brand__logo"></a>
+      <span class="brand__title">ИНФОТОК</span>
+    </div>
+
+    <button class="burger-menu" aria-label="Открыть меню">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="header-nav" aria-label="Главное меню">
+      <ul class="header-nav__list">
+        <li><a href="replenishment.html" class="header-nav__item">Пополнение steam</a></li>
+        <li><a href="#" class="header-nav__item">Игровая валюта</a></li>
+        <li><a href="#" class="header-nav__item">Покупай ключи</a></li>
+        <li><a href="#" class="header-nav__item">Оформляй подписки</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-buttons">
+      <a href="connection.html"><img src="assets/images/user.webp" alt="личный кабинет" class="header__user"></a>
+      <button class="theme-toggle" aria-label="Переключить тему">
+        <div class="theme-toggle__circle"></div>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+
+<script src="js/header.js"></script>
+    <main class="site-main">
+    <div class="game-container">
+        
+        <div class="game-gallery">
+            <div class="main-image-container">
+                <div class="main-image"></div>
+            </div>
+
+            <div class="thumbnails">
+                <div class="thumbnail active"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+            </div>
+        </div>
+
+        
+        <div class="purchase-block">
+            <h1 class="game-title">Название игры (Шаблон)</h1>
+
+            <div class="price-section">
+                <span class="current-price">1 499 ₽</span>
+                <span class="old-price">1 999 ₽</span>
+                <span class="discount">-25%</span>
+            </div>
+
+            <button class="btn--primary buy-button">Купить сейчас</button>
+            <button class="wishlist-button">Добавить в избранное</button>
+        </div>
+
+        
+        <div class="description-block">
+            <h2 class="description-title">Описание игры</h2>
+            <div class="description-content">
+                <div class="features-benefits">
+                    <p>✅ Моментальная доставка ключа</p>
+                    <p>✅ Официальная лицензия</p>
+                    <p>✅ Поддержка 24/7</p>
+                </div>
+                <p>Это шаблон страницы игры. Здесь будет размещено полное описание продукта, включая сюжет, геймплейные особенности и ключевые моменты.</p>
+
+                <p>Игра предлагает захватывающий опыт в жанре GRPG с открытым миром, где каждый выбор имеет значение.</p>
+
+                <h3 class="features-title">Ключевые особенности:</h3>
+                <ul class="features-list">
+                    <li>Обширный открытый мир с динамической погодой</li>
+                    <li>Глубокая система прокачки и кастомизации</li>
+                    <li>Мультиплеерные режимы на до 100 игроков</li>
+                    <li>Регулярные обновления и события</li>
+                    <li>Потрясающая графика и звуковое оформление</li>
+                </ul>
+
+                <p>Это очень крутой шаблон, ведт и игра очень классная! Надюесь, что лью достаточно воды...</p>
+            </div>
+        </div>
+
+        
+        <div class="reviews-block">
+            <h2 class="reviews-title">Отзывы покупателей</h2>
+
+            <div class="review-item">
+                <div class="review-header">
+                    <span>15 декабря 2025</span>
+                    <span class="review-rating">★★★★★</span>
+                </div>
+                <p class="review-text">Отличная игра! Геймплей затягивает на часы, графика на высоте. Покупка прошла моментально, ключ пришел сразу после оплаты.</p>
+                <div class="review-author">Алексей, Москва</div>
+            </div>
+
+            <div class="review-item">
+                <div class="review-header">
+                    <span>10 декабря 2025</span>
+                    <span class="review-rating">★★★★☆</span>
+                </div>
+                <p class="review-text">Хорошая игра, соответствует описанию. Были небольшие проблемы с активацией, но техподдержка помогла быстро решить вопрос.</p>
+                <div class="review-author">Мария, Санкт-Петербург</div>
+            </div>
+
+            <div class="review-item">
+                <div class="review-header">
+                    <span>5 декабря 2025</span>
+                    <span class="review-rating">★★★★★</span>
+                </div>
+                <p class="review-text">Покупал со скидкой, получилось очень выгодно. Игра стоит своих денег, особенно по такой цене. Рекомендую!</p>
+                <div class="review-author">Дмитрий, Екатеринбург</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const buyButton = document.querySelector('.buy-button');
+            const wishlistButton = document.querySelector('.wishlist-button');
+
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function () {
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            buyButton.addEventListener('click', function () {
+                alert('Товар добавлен в корзину! (шаблон)');
+            });
+
+            wishlistButton.addEventListener('click', function () {
+                this.textContent = this.textContent === 'Добавить в избранное' ? 'В избранном ✓' : 'Добавить в избранное';
+            });
+        });
+    </script>
+</main>
+    <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="contacts">
+        <div class="footer__line"></div>
+        <div class="footer__contacts">
+          <div class="contact">
+            <h4 class="contacts__title">Контакты:</h4>
+            <ul>
+              <li class="contacts__phone"><strong>телефон:</strong> +7 (800) 555-35-35</li>
+              <li class="contacts__email"><strong>почта:</strong> <a class="footer-email" href="mailto:KupiHub@gmail.com">KupiHub@gmail.com</a></li>
+            </ul>
+          </div>
+          
+          <div class="addresses">
+            <h4>Адреса офисов:</h4>
+            <ul>
+              <li>улица Гвардейцев, 18, Нижний Новгород, 603157</li>
+              <li>Московское шоссе, 1, Нижний Новгород, 603116</li>
+              <li>Кремль, 1А, Нижний Новгород</li>
+            </ul>
+            <p>график работы: Ежедневно с 10:00 до 19:00</p>
+          </div>
+
+          <div class="socials">
+            <h4>Мы в соцсетях:</h4>
+            <ul>
+              <li>Instagram</li>
+              <li>VKontakte</li>
+              <li>Telegram</li>
+              <li>YouTube</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__line"></div>
+      </div>
+
+      <div class="legal">
+        <a href="#" class="legal__link">Договор-оферта</a>
+        <a href="#" class="legal__link">Политика конфиденциальности</a>
+      </div>
+
+    </div>
+</footer>
+</body>
+</html>
